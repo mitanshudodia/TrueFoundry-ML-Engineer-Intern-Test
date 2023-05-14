@@ -8,21 +8,31 @@ This are the instruction to set up the program and run it in your local machine
 ## Installation Guide
 1. Clone the repository:
 
-    `git clone https://github.com/mitanshudodia/TrueFoundry-ML-Engineer-Intern-Test.git`
+```
+git clone https://github.com/mitanshudodia/TrueFoundry-ML-Engineer-Intern-Test.git
+```
 2. Create a virtual environment, activate it and navigate to TrueFoundry-ML-Engineer-Intern-Test:
 
-    `cd TrueFoundry-ML-Engineer-Intern-Test`
+```
+cd TrueFoundry-ML-Engineer-Intern-Test
+```
 3. Install all the dependencies:
 
-    `pip install -r requirements.txt`
+```
+pip install -r requirements.txt
+```
 ## Run the Service
-`python main.py --hf_pipeline <pipeline_name> --model_deployed_url <model_url>`
+```
+python main.py --hf_pipeline <pipeline_name> --model_deployed_url <model_url>
+```
 
 Here you have to replace the pipeline name with the hugging face pipeline name for that particular model and the mode_url with the endpoints of your TrueFoundry deployed model
     
 For Example running the server for the object-detection pipeline use this:
 
-`python main.py --hf_pipeline object-detection --model_deployed_url https://test-object-detect-intern-mitanshu-ws.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech`
+```
+python main.py --hf_pipeline object-detection --model_deployed_url https://test-object-detect-intern-mitanshu-ws.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech
+```
 
 Once the server is up and running for use you can send POST requests to http://localhost:8000/model_name to make predictions, here model_name is your model name available on TrueFoundry platform. The request body should follow the input format specified in the Hugging Face documentation for the respective pipeline.
 
@@ -30,8 +40,9 @@ Once the server is up and running for use you can send POST requests to http://l
 For example running the model for Token Classification then using the image for object detection you have to follows these steps
 1. Run the program with the pipeline name and your model endpoints
 
-    `python main.py --hf_pipeline token-classification --model_deployed_url https://zero-intern-mitanshu.demo1.truefoundry.com
-`
+```
+python main.py --hf_pipeline token-classification --model_deployed_url https://zero-intern-mitanshu.demo1.truefoundry.com
+```
 2. Code for making the request
 
 ```
@@ -60,8 +71,9 @@ print(output.json())
 For example running the model for Zero Shot Classification then using the image for object detection you have to follows these steps
 1. Run the program with the pipeline name and your model endpoints
 
-    `python main.py --hf_pipeline zero-shot-classification --model_deployed_url https://zero-intern-mitanshu.demo1.truefoundry.com
-`
+```
+ python main.py --hf_pipeline zero-shot-classification --model_deployed_url https://zero-intern-mitanshu.demo1.truefoundry.com
+ ```
 2. Code for making the request
 
 ```
@@ -90,7 +102,9 @@ print(output.json())
 For example running the model for object detection then using the image for object detection you have to follows these steps
 1. Run the program with the pipeline name and your model endpoints
 
-    `python main.py --hf_pipeline object-detection --model_deployed_url https://test-object-detect-intern-mitanshu-ws.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech`
+```
+python main.py --hf_pipeline object-detection --model_deployed_url https://test-object-detect-intern-mitanshu-ws.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech
+```
 2. Code for making the request
 
 ```
