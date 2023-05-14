@@ -82,14 +82,14 @@ import base64
 
 API_URL = 'http://0.0.0.0:8000/zero'
 
-def query(data):
+def query():
  
     input_data = {'inputs': 'Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!',
                   'candidate_labels': ["refund", "legal", "faq"]}
     response = requests.post(API_URL, json=input_data)
     return response
     
-output = query(data)
+output = query()
 print(output.json())
 
 ```
