@@ -1,6 +1,29 @@
 # TrueFoundry-ML-Engineer-Intern-Test
 This program is a service that acts as a  bridge between hugging face models deployed on TrueFoundry platform and the users using it, this program converts the user input into the v2 inference protocol format and call the TrueFoundry API and fetches and gives the result
-## Getting Started
+## Test through the Service Deployed on TrueFoundry
+The below program is for the text generation which is deploy as service on TrueFoundry which acts like hugging face, if you want to run it on your server see the below section
+```
+import requests
+import base64
+
+API_URL = 'https://fastapi-intern-mitanshu-8000.demo1.truefoundry.com/zero'
+
+def query():
+    input_data = {
+	"inputs": "My name is Sarah Jessica Parker but you can call me Jessica and I am studying computer science engineering in Mumbai",
+    }
+    response = requests.post(API_URL, json=input_data)
+    
+    return response
+
+output = query()
+print(output.json())
+```
+### output
+```
+[{"generated_text": "My name is Sarah Jessica Parker but you can call me Jessica and I am studying computer science engineering in Mumbai perhaps predators653 courtyard equateacious rubbingSexual Redux courtyardozyg membership workshops PocketMiniived incarcer lined653 membershipMini omega bravery Late rented Singapore Late courtyardSexual"}]
+```
+## Getting Started for local setup
 This are the instruction to set up the program and run it in your local machine
 ## Requirements
 * Python 3.9 or above
@@ -57,6 +80,7 @@ def query():
 	"inputs": "My name is Sarah Jessica Parker but you can call me Jessica, I am a computer engineering student from mumbai",
     }
     response = requests.post(API_URL, json=input_data)
+    
     return response
 
 output = query()
@@ -87,6 +111,7 @@ def query():
     input_data = {'inputs': 'Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!',
                   'candidate_labels': ["refund", "legal", "faq"]}
     response = requests.post(API_URL, json=input_data)
+    
     return response
     
 output = query()
@@ -116,6 +141,7 @@ API_URL = 'http://0.0.0.0:8000/test-object-detect'
 def query(data):
     input_data = {'inputs': data}
     response = requests.post(API_URL, json=input_data)
+    
     return response
 
 with open('html.png', "rb") as f:
