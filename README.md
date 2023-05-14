@@ -18,7 +18,7 @@ This are the instruction to set up the program and run it in your local machine
 ## Run the Service
 `python main.py --hf_pipeline <pipeline_name> --model_deployed_url <model_url>`
 
-Here you have to replace the pipeline name with the hugging face pipeline name for that particular mode and the mode_url with the endpoints of your TrueFoundry deployed model
+Here you have to replace the pipeline name with the hugging face pipeline name for that particular model and the mode_url with the endpoints of your TrueFoundry deployed model
     
 For Example running the server for the object-detection pipeline use this:
 
