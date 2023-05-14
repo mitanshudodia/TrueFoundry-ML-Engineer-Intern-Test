@@ -47,7 +47,7 @@ headers = {
 
 def query():
     input_data = {
-	"inputs": "My name is Sarah Jessica Parker but you can call me Jessica",
+	"inputs": "My name is Sarah Jessica Parker but you can call me Jessica, I am a computer engineering student from mumbai",
     }
     response = requests.post(API_URL, json=input_data)
     return response
