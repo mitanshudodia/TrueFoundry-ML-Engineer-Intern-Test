@@ -10,14 +10,14 @@ def convert_to_v2_input(hf_pipeline, input_data):
                     'shape':[-1],
                     'datatype':"BYTES",
                     'parameters':{"content_type": "str"},
-                    'data':input_data["inputs"],
+                    'data':input_data.inputs,
                 },
                 {
                     'name':"candidate_labels",
                     'shape':[-1],
                     'datatype':"BYTES",
                     'parameters':{"content_type": "str"},
-                    'data':input_data["candidate_labels"],
+                    'data':input_data.candidate_labels,
                 },
             ],
             "outputs": [],
@@ -31,7 +31,7 @@ def convert_to_v2_input(hf_pipeline, input_data):
                     'shape':[-1],
                     'datatype':"BYTES",
                     'parameters':dict(content_type="pillow_image"),
-                    'data': input_data['inputs']
+                    'data': input_data.inputs,
                 }
                 ],
                 "outputs": [],
@@ -45,7 +45,7 @@ def convert_to_v2_input(hf_pipeline, input_data):
                     'shape':[-1],
                     'datatype':"BYTES",
                     'parameters':{"content_type": "str"},
-                    'data':input_data['inputs'],
+                    'data':input_data.inputs,
                 }
             ],
             "outputs": [],
@@ -59,7 +59,7 @@ def convert_to_v2_input(hf_pipeline, input_data):
                     'shape':[-1],
                     'datatype':"BYTES",
                     'parameters':{"content_type": "str"},
-                    'data':input_data["inputs"],
+                    'data':input_data.inputs,
                 }
             ],
             "outputs": [],

@@ -3,6 +3,7 @@ import argparse
 import uvicorn
 from v2_converter import convert_to_v2_input
 import requests
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -13,9 +14,12 @@ args = parser.parse_args()
 pipeline_name = args.hf_pipeline
 model_deployed_url = args.model_deployed_url
 
+class Input(BaseModel):
+    inputs: str
+    candidate_labels: list = None
 
 @app.post("/{model_name}")
-async def read_item(model_name, input_data:dict):
+async def read_item(model_name, input_data:Input):
     '''This function converts the input in v2 protocol format and make request to TrueFoundry model and returns the response'''
     err_msg = None
     try:

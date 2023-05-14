@@ -1,7 +1,7 @@
 import requests
 import base64
 
-API_URL = 'http://0.0.0.0:8000/test-object-detection'
+API_URL = 'http://0.0.0.0:8000/zero'
 headers = {
     "Content-Type": "application/json",
     "Accept": "application/json"}
@@ -10,8 +10,8 @@ headers = {
 def query(data):
     
     #input for zero shot classification
-    # input_data = {'inputs': 'Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!',
-    #               'candidate_labels': ["refund", "legal", "faq"]}
+    input_data = {'inputs': 'Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!',
+                  'candidate_labels': ["refund", "legal", "faq"]}
 
     #input for token classification and text genetation
     # input_data = {
@@ -19,7 +19,7 @@ def query(data):
     # }
 
     #input for object detection
-    input_data = {'inputs': data}
+    # input_data = {'inputs': data}
 
     response = requests.post(API_URL, json=input_data)
     return response
