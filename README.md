@@ -40,10 +40,6 @@ import base64
 
 #here instead of zero there will be your model name from TrueFoundry
 API_URL = 'http://0.0.0.0:8000/zero'
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json"}
-
 
 def query():
     input_data = {
@@ -56,10 +52,41 @@ output = query()
 print(output.json())
 ```
 ### output
-`["[{"entity": "B-Therapeutic_procedure", "score": 0.3455923795700073, "index": 17, "word": "computer", "start": 78, "end": 86}, {"entity": "I-Therapeutic_procedure", "score": 0.34528684616088867, "index": 18, "word": "science", "start": 87, "end": 94}, {"entity": "I-History", "score": 0.27888694405555725, "index": 19, "word": "engineering", "start": 95, "end": 106}, {"entity": "B-Nonbiological_location", "score": 0.9757474064826965, "index": 21, "word": "mumbai", "start": 110, "end": 116}]"]
-`
+```
+["[{"entity": "B-Therapeutic_procedure", "score": 0.3455923795700073, "index": 17, "word": "computer", "start": 78, "end": 86}, {"entity": "I-Therapeutic_procedure", "score": 0.34528684616088867, "index": 18, "word": "science", "start": 87, "end": 94}, {"entity": "I-History", "score": 0.27888694405555725, "index": 19, "word": "engineering", "start": 95, "end": 106}, {"entity": "B-Nonbiological_location", "score": 0.9757474064826965, "index": 21, "word": "mumbai", "start": 110, "end": 116}]"]
+```
 
-## Example2
+## Example 2
+For example running the model for Zero Shot Classification then using the image for object detection you have to follows these steps
+1. Run the program with the pipeline name and your model endpoints
+
+    `python main.py --hf_pipeline zero-shot-classification --model_deployed_url https://zero-intern-mitanshu.demo1.truefoundry.com
+`
+2. Code for making the request
+
+```
+import requests
+import base64
+
+API_URL = 'http://0.0.0.0:8000/zero'
+
+def query(data):
+ 
+    input_data = {'inputs': 'Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!',
+                  'candidate_labels': ["refund", "legal", "faq"]}
+    response = requests.post(API_URL, json=input_data)
+    return response
+    
+output = query(data)
+print(output.json())
+
+```
+### output
+```
+{"sequence": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!", "labels": ["refund", "faq", "legal"], "scores": [0.937849760055542, 0.04914167523384094, 0.013008514419198036]}
+```
+
+## Example 3
 For example running the model for object detection then using the image for object detection you have to follows these steps
 1. Run the program with the pipeline name and your model endpoints
 
@@ -71,10 +98,6 @@ import requests
 import base64
 
 API_URL = 'http://0.0.0.0:8000/test-object-detect'
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json"}
-
 
 def query(data):
     input_data = {'inputs': data}
@@ -88,4 +111,6 @@ output = query(data)
 print(output.json())
 ```
 ### output
-`["[{"score": 0.9528601169586182, "label": "table", "box": {"xmin": 33, "ymin": 46, "xmax": 187, "ymax": 214}}]"]`
+```
+["[{"score": 0.9528601169586182, "label": "table", "box": {"xmin": 33, "ymin": 46, "xmax": 187, "ymax": 214}}]"]
+```
