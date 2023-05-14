@@ -38,6 +38,7 @@ For example running the model for Token Classification then using the image for 
 import requests
 import base64
 
+#here instead of zero there will be your model name from TrueFoundry
 API_URL = 'http://0.0.0.0:8000/zero'
 headers = {
     "Content-Type": "application/json",
