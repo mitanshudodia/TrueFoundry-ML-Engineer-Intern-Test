@@ -27,6 +27,6 @@ def query():
 with open('html.png', "rb") as f:
     data = base64.b64encode(f.read()).decode('utf-8')
     
-output = query(data)
+output = query()
 print(output.json())
 
