@@ -42,7 +42,7 @@ async def read_item(model_name, input_data:Input):
         response = requests.post(url, json=body, headers=headers)
 
         try:
-            output = response.json()['outputs'][0]['data']
+            output = response.json()['outputs'][0]['data'][0]
             return output
         
         except:
